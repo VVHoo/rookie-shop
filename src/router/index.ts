@@ -8,17 +8,45 @@ export function createRouter() {
   const routes = [
     {
       path: '/',
-      name: 'home',
-      component: Home
-    },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () =>
-        import(/* webpackChunkName: "about" */ '../views/About.vue')
+      component: Home,
+      children: [
+        {
+          path: '',
+          redirect: '/index'
+        },
+        {
+          path: 'index',
+          name: 'index',
+          component: () =>
+            import(
+              /* webpackChunkName: "homePage" */ '../views/indexPage/index.vue'
+            )
+        },
+        {
+          path: 'addOrder',
+          name: 'addOrder',
+          component: () =>
+            import(
+              /* webpackChunkName: "addOrder" */ '../views/order/addOrder.vue'
+            )
+        },
+        {
+          path: 'shoppingCart',
+          name: 'shoppingCart',
+          component: () =>
+            import(
+              /* webpackChunkName: "shoppingCart" */ '../views/order/addOrder.vue'
+            )
+        },
+        {
+          path: 'profile',
+          name: 'profile',
+          component: () =>
+            import(
+              /* webpackChunkName: "profile" */ '../views/profile/mine.vue'
+            )
+        }
+      ]
     }
   ]
   return new VueRouter({

@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import { createRouter } from './router'
 import { createStore } from './store'
-import 'vant/lib/index.css'
+// import 'vant/lib/index.css'
 
 Vue.config.productionTip = false
 
