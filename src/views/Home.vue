@@ -18,8 +18,8 @@
 <script lang="ts">
 // @ is an alias to /src
 import { Component, Vue } from 'vue-property-decorator'
-import Tabbar from 'vant/lib/tabbar'
-import TabbarItem from 'vant/lib/tabbar-item'
+import TabBar from 'vant/lib/tabbar'
+import TabBarItem from 'vant/lib/tabbar-item'
 import 'vant/lib/style/base.css'
 import 'vant/lib/tabbar/index.css'
 import 'vant/lib/tabbar-item/index.css'
@@ -32,8 +32,8 @@ interface ITabItems {
 }
 @Component({
   components: {
-    'tab-bar': Tabbar,
-    'tab-bar-item': TabbarItem
+    'tab-bar': TabBar,
+    'tab-bar-item': TabBarItem
   }
 })
 export default class Home extends Vue {

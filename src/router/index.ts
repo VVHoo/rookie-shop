@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import Index from '../views/indexPage/index.vue'
 
 Vue.use(VueRouter)
 
@@ -17,10 +18,7 @@ export function createRouter() {
         {
           path: 'index',
           name: 'index',
-          component: () =>
-            import(
-              /* webpackChunkName: "homePage" */ '../views/indexPage/index.vue'
-            )
+          component: Index
         },
         {
           path: 'addOrder',
