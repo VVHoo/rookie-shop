@@ -3,13 +3,10 @@ import App from './App.vue'
 import { createRouter } from './router'
 import { createStore } from './store'
 // import 'vant/lib/index.css'
-import initMockService from '@/mocks'
+import { Lazyload } from 'vant'
 
-const mockEnabled = true
 Vue.config.productionTip = false
-if (mockEnabled) {
-  initMockService()
-}
+Vue.use(Lazyload)
 
 export function createApp() {
   const router = createRouter()
