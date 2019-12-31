@@ -30,7 +30,9 @@ export default class Header extends Vue {}
     spaceBetween()
     position: fixed
     top: 0
-    padding: 12px 13px
+    width: 100%
+    height: 54px
+    padding: 0 13px
     z-index: 10
     .location
         verticalCenter()

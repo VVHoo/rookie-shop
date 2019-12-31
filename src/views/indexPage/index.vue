@@ -1,7 +1,7 @@
 <template>
   <div :class="$style['index-page']">
     <Header />
-    <swipe :autoplay="3000">
+    <swipe :autoplay="8000">
       <swipe-item v-for="(image, index) in banners" :key="index">
         <img :src="image.imgUrl" alt="" />
       </swipe-item>
@@ -12,7 +12,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import Swipe from 'vant/lib/swipe'
-import SwipItem from 'vant/lib/swipe-item'
+import SwipeItem from 'vant/lib/swipe-item'
 import Header from './widgets/Header.vue'
 import { getBannersList } from '@/service/apis'
 import { IBanner } from '@/types/IBanner'
@@ -22,7 +22,7 @@ import 'vant/lib/swipe-item/index.css'
 @Component({
   components: {
     swipe: Swipe,
-    'swipe-item': SwipItem,
+    'swipe-item': SwipeItem,
     Header
   }
 })
