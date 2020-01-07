@@ -11,6 +11,19 @@ const getBanners = () => {
   })
 }
 
+const getDefaultStore = storeId => {
+  return Mock.mock({
+    'categories|10': [
+      {
+        icon: Mock.Random.image('50x60'),
+        text: Mock.Random.cword(3)
+      }
+    ],
+    notice: ''
+  })
+}
+
 module.exports = {
-  getBanners
+  getBanners,
+  getDefaultStore
 }

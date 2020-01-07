@@ -1,1 +1,1 @@
-export const GETBANNER = 'GETBANNER'
+export const GETDEFAULTSTORE = 'GETDEFAULTSTORE'

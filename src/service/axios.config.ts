@@ -49,12 +49,15 @@ axios.defaults.transformResponse = [
 export default async function<T = any>(
   options: AxiosRequestConfig
 ): Promise<IResponseData<T>> {
-  const { url, method, data } = options
-  const requestOptions = {
-    method: method,
-    url: url,
-    data: data
-  }
+  const { url, method } = options
+  const requestOptions = Object.assign(
+    {},
+    {
+      method: 'post',
+      url: url
+    },
+    options
+  )
   try {
     const {
       data,
