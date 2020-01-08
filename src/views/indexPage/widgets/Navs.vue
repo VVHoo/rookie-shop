@@ -14,7 +14,7 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import { State } from 'vuex-class'
-import { ICategory } from '@/store/modules/main'
+import { ICategory } from '@/types/IMainStore'
 
 @Component
 export default class Navs extends Vue {
@@ -36,5 +36,5 @@ export default class Navs extends Vue {
             display: block
         span
             color: $text-color-normal
-            font-size: $font-size-md
+            font-size: $font-size-sm
 </style>

@@ -15,6 +15,7 @@ const getDefaultStore = storeId => {
   return Mock.mock({
     'categories|10': [
       {
+        cid: Mock.Random.natural(10, 100),
         icon: Mock.Random.image('50x60'),
         text: Mock.Random.cword(3)
       }

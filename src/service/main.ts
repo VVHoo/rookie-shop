@@ -1,5 +1,5 @@
 import http from './axios.config'
-import { IMainStore } from '@/store/modules/main'
+import { IMainStore } from '@/types/IMainStore'
 import { IBanner } from '@/types/IBanner'
 
 const GETBANNERS = '/main/banners' // 获取banners
@@ -17,7 +17,7 @@ let getBannersList: () => Promise<IBanner[]> = async () => {
 
 let getDefaultStore: (
   storeId: number
-) => Promise<IMainStore[]> = async storeId => {
+) => Promise<IMainStore> = async storeId => {
   const { data } = await http({
     url: GETDEFAULTSTORE,
     method: 'get',
