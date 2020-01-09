@@ -24,7 +24,22 @@ const getDefaultStore = storeId => {
   })
 }
 
+const getFlashList = () => {
+  return Mock.mock({
+    'flashList|12': [
+      {
+        gid: Mock.Random.natural(),
+        img: Mock.Random.image('78x78'),
+        name: Mock.Random.cparagraph(10),
+        price: Mock.Random.float(1, 99, 0, 2),
+        originPrice: Mock.Random.float(1, 99, 2, 2)
+      }
+    ]
+  })
+}
+
 module.exports = {
   getBanners,
-  getDefaultStore
+  getDefaultStore,
+  getFlashList
 }

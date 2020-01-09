@@ -1,0 +1,53 @@
+@import "../var.styl"
+@import "../mixins/layout.styl"
+.flash-sale
+  width: 100%
+  margin: 10px 0
+  .header
+    spaceBetween()
+    padding: 10px 13px
+    .title
+      color: $text-color-black
+      font-weight: bold
+      font-size: $font-size-title
+    .more
+      verticalCenter()
+      font-size: $font-size-md
+  .scroller
+    padding-left: 13px
+    position: relative
+    overflow: hidden
+    .list
+      display: flex
+      padding-left: 13px
+      .card
+        box-sizing: content-box
+        display: inline-block
+        width: 90px
+        min-width: 90px
+        padding-right: 10px
+        .container
+          padding: 7px
+          background-color: $white
+          .name
+            margin: 4px 0
+            color: $text-color-black
+            font-size: $font-size-sm
+            lines-over-flow(1)
+          .bottom
+            spaceBetween()
+            .price
+              color: $orange
+              font-size: $font-size-md
+              .origin
+                color: $greyDark
+                font-size: $font-size-xs
+            .btn-buy
+              width: 24px
+              height: 24px
+              line-height: 24px
+              text-align: center
+              border-radius: 50%
+              font-size: $font-size-md
+              color: $white
+              background: linear-gradient(to right, #ff6034, #ee0a24)

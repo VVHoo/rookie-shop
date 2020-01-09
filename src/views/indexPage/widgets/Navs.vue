@@ -26,6 +26,7 @@ export default class Navs extends Vue {
 @import "../../../style/var.styl"
 .navs
     padding-top: 10px
+    background-color: $white
     .nav-item
         display: inline-block
         width: 20%

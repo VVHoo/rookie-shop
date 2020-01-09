@@ -55,6 +55,7 @@ export default class Header extends Vue {
             text-align: center
             border-radius: 26px
             background-color: $grey
+            opacity: .5;
             i
                 display: inline-block
                 &.arrow

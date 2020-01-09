@@ -9,6 +9,7 @@
       </swipe-item>
     </swipe>
     <Navs />
+    <FlashSale :list="flashList" v-if="flashList.length" />
   </div>
 </template>
 
@@ -18,9 +19,11 @@ import Swipe from 'vant/lib/swipe'
 import SwipeItem from 'vant/lib/swipe-item'
 import Header from './widgets/Header.vue'
 import Navs from './widgets/Navs.vue'
-import { getBannersList } from '@/service/main'
+import FlashSale from './widgets/FlashSale.vue'
+import { getBannersList, getFlashList } from '@/service/main'
 import { IMainStore } from '@/types/IMainStore'
-import { IBanner } from '@/types/IBanner'
+import Banner from '@/entities/Banner'
+import FlashGood from '@/entities/FlashGood'
 import { Store } from 'vuex'
 import { Action } from 'vuex-class'
 import 'vant/lib/style/base.css'
@@ -32,7 +35,8 @@ import 'vant/lib/swipe-item/index.css'
     swipe: Swipe,
     'swipe-item': SwipeItem,
     Header,
-    Navs
+    Navs,
+    FlashSale
   }
 })
 export default class Index extends Vue {
@@ -40,10 +44,14 @@ export default class Index extends Vue {
     return store.dispatch('getStoreInfo')
   }
   @Action private getStoreInfo!: (storeId: number) => void
-  banners: IBanner[] = []
+  banners: Banner[] = []
+  flashList: FlashGood[] = []
   private mounted() {
+    // 获取banner
     this.getBanners()
+    // 获取店铺基本信息
     this.getDefaultStore()
+    this.getFlashSale()
   }
   private async getBanners() {
     const data = await getBannersList()
@@ -53,6 +61,9 @@ export default class Index extends Vue {
     const storeId = parseInt(this.$route.params.storeId)
     this.getStoreInfo(storeId)
   }
+  private async getFlashSale() {
+    this.flashList = await getFlashList()
+  }
 }
 </script>
 
@@ -61,4 +72,6 @@ export default class Index extends Vue {
     height: 100%
     .banner
         min-height: 230px
+        img
+            display: block
 </style>

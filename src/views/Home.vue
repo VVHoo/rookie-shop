@@ -12,6 +12,7 @@
         {{ item.label }}
       </tab-bar-item>
     </tab-bar>
+    <div :class="$style.blank"></div>
   </div>
 </template>
 
@@ -62,3 +63,7 @@ export default class Home extends Vue {
   private active: string = '/index'
 }
 </script>
+<style lang="stylus" module scoped>
+.blank
+    height: 50px
+</style>
