@@ -1,5 +1,10 @@
 <template>
-  <div :class="$style['index-page']">
+  <PullRefresh
+    :class="$style['index-page']"
+    v-model="isLoading"
+    @refresh="onRefresh"
+    success-text="刷新成功"
+  >
     <Header />
     <swipe :autoplay="8000" indicator-color="#EC6130" :class="$style.banner">
       <swipe-item v-for="(image, index) in banners" :key="index">
@@ -9,8 +14,8 @@
       </swipe-item>
     </swipe>
     <Navs />
-    <FlashSale :list="flashList" v-if="flashList.length" />
-  </div>
+    <FlashSale :list="flashList" :endTime="endTime" />
+  </PullRefresh>
 </template>
 
 <script lang="ts">
@@ -20,6 +25,7 @@ import SwipeItem from 'vant/lib/swipe-item'
 import Header from './widgets/Header.vue'
 import Navs from './widgets/Navs.vue'
 import FlashSale from './widgets/FlashSale.vue'
+import PullRefresh from 'vant/lib/pull-refresh'
 import { getBannersList, getFlashList } from '@/service/main'
 import { IMainStore } from '@/types/IMainStore'
 import Banner from '@/entities/Banner'
@@ -29,6 +35,8 @@ import { Action } from 'vuex-class'
 import 'vant/lib/style/base.css'
 import 'vant/lib/swipe/index.css'
 import 'vant/lib/swipe-item/index.css'
+import 'vant/lib/loading/index.css'
+import 'vant/lib/pull-refresh/index.css'
 
 @Component({
   components: {
@@ -36,7 +44,8 @@ import 'vant/lib/swipe-item/index.css'
     'swipe-item': SwipeItem,
     Header,
     Navs,
-    FlashSale
+    FlashSale,
+    PullRefresh
   }
 })
 export default class Index extends Vue {
@@ -45,7 +54,9 @@ export default class Index extends Vue {
   }
   @Action private getStoreInfo!: (storeId: number) => void
   banners: Banner[] = []
+  isLoading: boolean = false
   flashList: FlashGood[] = []
+  endTime: number = 0
   private mounted() {
     // 获取banner
     this.getBanners()
@@ -54,15 +65,22 @@ export default class Index extends Vue {
     this.getFlashSale()
   }
   private async getBanners() {
-    const data = await getBannersList()
-    this.banners = data
+    this.banners = await getBannersList()
   }
   private async getDefaultStore() {
     const storeId = parseInt(this.$route.params.storeId)
     this.getStoreInfo(storeId)
   }
   private async getFlashSale() {
-    this.flashList = await getFlashList()
+    const data = await getFlashList()
+    this.flashList = data.flashList
+    this.endTime = data.endTime
+  }
+  private async onRefresh() {
+    await this.getBanners()
+    await this.getDefaultStore()
+    await this.getFlashSale()
+    this.isLoading = false
   }
 }
 </script>

@@ -26,6 +26,7 @@ const getDefaultStore = storeId => {
 
 const getFlashList = () => {
   return Mock.mock({
+    endTime: Mock.Random.natural(40000, 1000000),
     'flashList|12': [
       {
         gid: Mock.Random.natural(),

@@ -5,7 +5,7 @@ import FlashGood from '@/entities/FlashGood'
 
 const GETBANNERS = '/main/banners' // 获取banners
 const GETDEFAULTSTORE = '/main/default/store' // 获取店铺默认信息
-const GETFLASHLIST = '/main/flash'
+const GETFLASHLIST = '/main/flash' // 获取抢购
 
 let getBannersList: () => Promise<IBanner[]> = async () => {
   const {
@@ -30,14 +30,15 @@ let getDefaultStore: (
   return data
 }
 
-let getFlashList: () => Promise<FlashGood[]> = async () => {
-  const {
-    data: { flashList }
-  } = await http({
+let getFlashList: () => Promise<{
+  flashList: FlashGood[]
+  endTime: number
+}> = async () => {
+  const { data } = await http({
     url: GETFLASHLIST,
     method: 'get'
   })
-  return flashList
+  return data
 }
 
 export { getBannersList, getDefaultStore, getFlashList }

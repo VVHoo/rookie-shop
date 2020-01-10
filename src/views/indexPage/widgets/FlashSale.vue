@@ -3,14 +3,15 @@
     <div :class="$style.header">
       <div :class="$style.title">
         <span>限时抢购</span>
+        <CountDown :time="endTime" :class="$style['count-down']" />
       </div>
       <div :class="$style.more">
         <span>更多</span>
         <van-icon name="arrow" />
       </div>
     </div>
-    <horizontal-scroller :class="$style.scroller">
-      <div :class="$style.list" :style="`width: ${scrollWidth}px`">
+    <div :class="$style.scroller" v-if="list.length">
+      <div :class="$style.list">
         <div
           :class="$style.card"
           v-for="(item, index) in list"
@@ -32,37 +33,27 @@
           </div>
         </div>
       </div>
-    </horizontal-scroller>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator'
 import Icon from 'vant/lib/icon'
-import HorizontalScroller from '@/components/HorizontalScroller.vue'
+import CountDown from 'vant/lib/count-down'
 import FlashGood from '@/entities/FlashGood'
 import 'vant/lib/icon/index.css'
+import 'vant/lib/count-down/index.css'
 
 @Component({
   components: {
     'van-icon': Icon,
-    'horizontal-scroller': HorizontalScroller
+    CountDown
   }
 })
 export default class FlashSale extends Vue {
   @Prop(Array) readonly list!: Array<FlashGood>
-  scrollWidth: number = 1000
-  private mounted() {
-    this.calculateWidth()
-  }
-  private calculateWidth() {
-    if (this.list.length) {
-      let card = this.$refs.card as HTMLDivElement[]
-      this.scrollWidth = card[0].clientWidth * this.list.length + 13
-    } else {
-      this.scrollWidth = 1000
-    }
-  }
+  @Prop(Number) readonly endTime!: number
 }
 </script>
 

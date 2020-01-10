@@ -7,19 +7,28 @@
     spaceBetween()
     padding: 10px 13px
     .title
+      spaceBetween()
       color: $text-color-black
       font-weight: bold
       font-size: $font-size-title
+      .count-down
+        margin-left: 10px
+        padding: 0 8px
+        border-radius: 20px
+        color: $white
+        font-size: $font-size-sm
+        background: $gradient
     .more
       verticalCenter()
       font-size: $font-size-md
   .scroller
     padding-left: 13px
     position: relative
-    overflow: hidden
+    overflow-x: scroll
+    &::-webkit-scrollbar
+      width: 0 !important
     .list
       display: flex
-      padding-left: 13px
       .card
         box-sizing: content-box
         display: inline-block
@@ -29,6 +38,12 @@
         .container
           padding: 7px
           background-color: $white
+          .imgbox
+            position: relative
+            width: 78px
+            height: 78px
+            img
+              absoluteCenter()
           .name
             margin: 4px 0
             color: $text-color-black
