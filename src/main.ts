@@ -2,7 +2,6 @@ import Vue from 'vue'
 import App from './App.vue'
 import { createRouter } from './router'
 import { createStore } from './store'
-// import 'vant/lib/index.css'
 import { Lazyload } from 'vant'
 
 Vue.config.productionTip = false

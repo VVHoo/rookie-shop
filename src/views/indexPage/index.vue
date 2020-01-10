@@ -14,6 +14,7 @@
       </swipe-item>
     </swipe>
     <Navs />
+    <SpecialZone />
     <FlashSale :list="flashList" :endTime="endTime" />
   </PullRefresh>
 </template>
@@ -24,6 +25,7 @@ import Swipe from 'vant/lib/swipe'
 import SwipeItem from 'vant/lib/swipe-item'
 import Header from './widgets/Header.vue'
 import Navs from './widgets/Navs.vue'
+import SpecialZone from './widgets/SpecialZone.vue'
 import FlashSale from './widgets/FlashSale.vue'
 import PullRefresh from 'vant/lib/pull-refresh'
 import { getBannersList, getFlashList } from '@/service/main'
@@ -44,6 +46,7 @@ import 'vant/lib/pull-refresh/index.css'
     'swipe-item': SwipeItem,
     Header,
     Navs,
+    SpecialZone,
     FlashSale,
     PullRefresh
   }

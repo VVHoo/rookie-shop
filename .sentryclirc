@@ -1,0 +1,7 @@
+[defaults]
+url=https://sentry.io
+org=Hoo
+project=rookie-shop
+
+[auth]
+token=42fe721ace3946b3b9d1558c19b1267343b2db7b136e470799f2720f9b8705f5

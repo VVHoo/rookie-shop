@@ -1,5 +1,6 @@
 import axios, { AxiosRequestConfig } from 'axios'
 import Qs from 'qs'
+import { createSentry } from '@/sentry'
 
 interface IResponseData<T> {
   data: T
@@ -13,6 +14,25 @@ const options = {
   headers: {
     'Content-Type': 'application/json;chareset=UTF-8'
   }
+}
+
+function errorReport(
+  url: string,
+  error: string | Error,
+  requestOptions: AxiosRequestConfig,
+  response: any
+) {
+  const errorInfo: any = {
+    error: typeof error === 'string' ? new Error(error) : error,
+    type: 'request',
+    requestUrl: url,
+    requestOptions: JSON.stringify(requestOptions)
+  }
+  if (response) {
+    errorInfo.response = JSON.stringify(response)
+  }
+  const sentry = createSentry()
+  sentry.log(errorInfo)
 }
 
 const instance = axios.create(options)
@@ -63,8 +83,9 @@ export default async function<T = any>(
       data,
       data: { code, message }
     } = await instance.request<IResponseData<T>>(requestOptions)
+    // TODO error tips
     if (!code) {
-      // TODO error tips
+      errorReport(url!, message, requestOptions, data)
       throw new Error(message)
     }
     return data

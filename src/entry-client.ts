@@ -1,4 +1,5 @@
 import { createApp } from './main'
+import { createSentry } from '@/sentry'
 
 const { app, router, store } = createApp()
 
@@ -8,4 +9,8 @@ if (initialState) {
 }
 router.onReady(() => {
   app.$mount('#app')
+  let isDev = process.env.NODE_ENV === 'development'
+  if (!isDev) {
+    createSentry()
+  }
 })

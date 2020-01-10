@@ -948,6 +948,67 @@
   dependencies:
     any-observable "^0.3.0"
 
+"@sentry/browser@^5.11.0":
+  version "5.11.0"
+  resolved "https://registry.npm.taobao.org/@sentry/browser/download/@sentry/browser-5.11.0.tgz#70b6e42e53d9ed8f0157101f63a8f72ac98cbd6f"
+  integrity sha1-cLbkLlPZ7Y8BVxAfY6j3KsmMvW8=
+  dependencies:
+    "@sentry/core" "5.11.0"
+    "@sentry/types" "5.11.0"
+    "@sentry/utils" "5.11.0"
+    tslib "^1.9.3"
+
+"@sentry/core@5.11.0":
+  version "5.11.0"
+  resolved "https://registry.npm.taobao.org/@sentry/core/download/@sentry/core-5.11.0.tgz#fc21acefbb58bacda7b1b33e4a67b56d7f7064b4"
+  integrity sha1-/CGs77tYus2nsbM+Sme1bX9wZLQ=
+  dependencies:
+    "@sentry/hub" "5.11.0"
+    "@sentry/minimal" "5.11.0"
+    "@sentry/types" "5.11.0"
+    "@sentry/utils" "5.11.0"
+    tslib "^1.9.3"
+
+"@sentry/hub@5.11.0":
+  version "5.11.0"
+  resolved "https://registry.npm.taobao.org/@sentry/hub/download/@sentry/hub-5.11.0.tgz#d427432fff13d9b34d83da8651ad5c4207260796"
+  integrity sha1-1CdDL/8T2bNNg9qGUa1cQgcmB5Y=
+  dependencies:
+    "@sentry/types" "5.11.0"
+    "@sentry/utils" "5.11.0"
+    tslib "^1.9.3"
+
+"@sentry/integrations@^5.11.0":
+  version "5.11.0"
+  resolved "https://registry.npm.taobao.org/@sentry/integrations/download/@sentry/integrations-5.11.0.tgz#8f14fbed44464db7b5fa5e1b86b0dec8fe543ff9"
+  integrity sha1-jxT77URGTbe1+l4bhrDeyP5UP/k=
+  dependencies:
+    "@sentry/types" "5.11.0"
+    "@sentry/utils" "5.11.0"
+    tslib "^1.9.3"
+
+"@sentry/minimal@5.11.0":
+  version "5.11.0"
+  resolved "https://registry.npm.taobao.org/@sentry/minimal/download/@sentry/minimal-5.11.0.tgz#5a5f334794f03044e7d0316757abd0a236fcb1f3"
+  integrity sha1-Wl8zR5TwMETn0DFnV6vQojb8sfM=
+  dependencies:
+    "@sentry/hub" "5.11.0"
+    "@sentry/types" "5.11.0"
+    tslib "^1.9.3"
+
+"@sentry/types@5.11.0":
+  version "5.11.0"
+  resolved "https://registry.npm.taobao.org/@sentry/types/download/@sentry/types-5.11.0.tgz#40f0f3174362928e033ddd9725d55e7c5cb7c5b6"
+  integrity sha1-QPDzF0Niko4DPd2XJdVefFy3xbY=
+
+"@sentry/utils@5.11.0":
+  version "5.11.0"
+  resolved "https://registry.npm.taobao.org/@sentry/utils/download/@sentry/utils-5.11.0.tgz#c07313eaf2331ecdecfd240c350bb28c7bd38e9c"
+  integrity sha1-wHMT6vIzHs3s/SQMNQuyjHvTjpw=
+  dependencies:
+    "@sentry/types" "5.11.0"
+    tslib "^1.9.3"
+
 "@soda/friendly-errors-webpack-plugin@^1.7.1":
   version "1.7.1"
   resolved "https://registry.npm.taobao.org/@soda/friendly-errors-webpack-plugin/download/@soda/friendly-errors-webpack-plugin-1.7.1.tgz#706f64bcb4a8b9642b48ae3ace444c70334d615d"
@@ -9882,7 +9943,7 @@ tsconfig@^7.0.0:
     strip-bom "^3.0.0"
     strip-json-comments "^2.0.0"
 
-tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0:
+tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0, tslib@^1.9.3:
   version "1.10.0"
   resolved "https://registry.npm.taobao.org/tslib/download/tslib-1.10.0.tgz#c3c19f95973fb0a62973fb09d90d961ee43e5c8a"
   integrity sha1-w8GflZc/sKYpc/sJ2Q2WHuQ+XIo=

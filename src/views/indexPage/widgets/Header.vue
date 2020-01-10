@@ -37,7 +37,7 @@ export default class Header extends Vue {
 @import "../../../style/var.styl"
 @import "../../../style/mixins/layout.styl"
 .header
-    position: fixed
+    position: absolute
     top: 0
     width: 100%
     height: 54px
